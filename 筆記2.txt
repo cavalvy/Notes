@@ -18,21 +18,33 @@ vue：
 	<router-link> 组件支持用户在具有路由功能的应用中导航，通过 <router-link> 上的 to="xxx" 属性可以指定目标地址，xxx这里是一个字符串对应路由配置中的 path。第一个参数是字符串或者一个描述地址对象
 	当 <router-link> 被点击后，to 的值就会传到 router.push()
 	
-	ES6 允许我们使用箭头（=>）函数，因此下面两种写法是等价的：
-	events.forEach((event) => {
-		el.addEventListener(event, handler, false)
-	})
-	// 等价于
-	events.forEach(function (event) {
-		el.addEventListener(event, handler, false)
-	})
+	在组件上使用 v-for 指令进行渲染的时候，需要添加 key。它可以方便 Vue 跟踪每个节点的身份，从而重用和重新排序现有元素。每一项的 key 应该是惟一的.
 	
-	[...Array(num)] 中的 ... 是扩展运算符\对象展开运算符，我们可以用它展开一个数组或对象。将此对象混入到外部对象屬性中
+
+	Router
+		mode：路由模式，默认值 'hash' 使用井号（ # ）作路由，值 'history' 可利用 History API 来完成页面跳转且无须重新加载.
+		linkExactActiveClass 的值是一个类名，用来添加到与当前路由对应的 <router-link> 上，以显示当前精确激活的 <router-link>，其默认值是 'router-link-exact-active'.
+	
+	
+	ES6 
+		允许我们使用箭头（=>）函数，因此下面两种写法是等价的：
+			events.forEach((event) => {
+				el.addEventListener(event, handler, false)
+			})
+			// 等价于
+			events.forEach(function (event) {
+				el.addEventListener(event, handler, false)
+			})
+		[...Array(num)] 中的 ... 是扩展运算符\对象展开运算符，我们可以用它展开一个数组或对象。将此对象混入到外部对象屬性中
+		Object.assign是ES6新添加的接口,可以接收多个参数，第一个参数是目标对象，后面的都是源对象，assign方法将多个原对象的属性和方法都合并到了目标对象上面，如果在这个过程中出现同名的属性（方法），后合并的属性（方法）会覆盖之前的同名属性（方法）。如下：
+		// 合并新旧个人信息，等价于 user = Object.assign({}, stateUser, user)
+		user = { ...stateUser, ...user }
 	
 	nextTick将回调延迟到下次 DOM 更新循环之后执行，nextTick 有一个全局方法 Vue.nextTick，在实例上使用 this.$nextTick，不要忘记 $
 	
 	注册全局组件需要使用 Vue.component，第一个参数 'xxx' 是组件名称，第二个参数 xxx 是一个对象或者函数
-	注册全局指令需要使用 Vue.directive，第一个参数 'xxx' 是指令名称，第二个参数 xxx 是指令对象或者指令函数
+	注册全局指令需要使用 Vue.directive，第一个参数 'xxx' 是指令名称，第二个参数 xxx 是一个对象或者函数
+	注册全局过滤器需要使用 Vue.filter，第一个参数 'xxx' 是指令名称，第二个参数 xxx 是一个对象或者函数
 	全局方法Vue.xxx = xxx对象或者函数Vue.xxx进行访问
 	实例方法Vue.prototype.$xxx，通过this.$xxx 进行访问
 	
@@ -41,6 +53,18 @@ vue：
 	计算属性（computed）用来处理相对复杂的逻辑，并返回一个新的属性，它会根据其依赖的变化而变化
 	
 	当一个组件需要获取多个状态时候，将这些状态都一一声明就显得重复和冗余了。为了解决这个问题，我们可以使用 mapState 辅助函数帮我们生成對應属性，这样我们就能直接在模板里使用了。
+	// 引入 mapState 辅助函数 import { mapState } from 'vuex'
+	
+	Vuex.Store
+		state：共享的状态，我们不能直接更改状态，但是可以像 store.state.user 这样访问一个状态；
+		mutations：更改状态的方法，我们可以在这里更改状态，调用方法是像 store.commit('UPDATE_USER', user) 这样提交一个事件类型，这里不能包含异步操作；
+		actions：类似于 mutations，但我们不在这里直接更改状态，而是提交前面的 mutation，调用方法是像 store.dispatch('login') 这样分发一个事件，这里可以包含异步操作；
+		
+	Vue.extend 用来创建一个新『子类』，其参数是一个包含组件选项的对象。
+	使用 new 关键字可以创建一个新的 Message 实例，因为没有指定 el 挂载目标，当前实例处于『未挂载』状态。如：const vm = new Message()
+	使用 vm.$mount() 手动地挂载一个未挂载的实例，并返回当前实例，此时我们能从实例获取 $el。如：vm.$mount().$el
+	vm.$on 用来监听当前实例上的自定义事件，其第一个参数是事件名称或包含事件名称的数组，其第二个参数是回调函数，该函数会接收触发函数的所有参数。
+	
 	
 	选项 / 数据
 		props 是用来传递数据的.數據類型：String，Number，Boolean，Function，Object，Array，Symbol。props 的绑定默认是单向的，需要在父组件上添加 .sync 修饰符，以创建『双向绑定』
@@ -64,8 +88,25 @@ vue：
 	componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用；
 	unbind：只调用一次，指令与元素解绑时调用，在这里可以移除绑定的事件和其他数据；
 	created 在实例创建完成后被立即调用，此时我们已经能访问实例的数据对象和方法了
+	mounted 钩子在元素挂载到实例之后调用.(元素指頁面標簽).
 	
-	v-model 指令可以在表单 <input> 及 <textarea> 元素上创建双向数据绑定
+	
+	v-model 指令可以在表单 <input> 及 <textarea> 元素上创建双向数据绑定，v-model会忽略所有表单元素的 value、checked 和 selected 的初始值，而使用 Vue 实例的数据，所以我们需要在 data 里声明对应的初始值.
+	使用 .lazy 修饰符，可以使其值在 change 事件后才同步
+		在单选选择框中使用 v-model，其值是一个静态字符串，对应选中项的 value，如 'male'；
+			<select v-model="sex" class="form-control">
+			  <option value="">未选择</option>
+			  <option value="male">男</option>
+			  <option value="female">女</option>
+			</select>
+		在多个复选框使用 v-model，其值是一个数组，数组项对应已选项的 value，如 ['运动']；
+			<label class="checkbox-inline">
+			  <input v-model="hobbies" value="运动" type="checkbox"> 运动
+			</label>
+			<label class="checkbox-inline">
+			  <input v-model="hobbies" value="健身" type="checkbox"> 健身
+			</label>
+
 	v-show 是一个条件渲染指令，它只切换元素 CSS 属性的 display
 
 	
@@ -82,11 +123,25 @@ vue：
 				params：路由参数对象，如 { id: "1" }；
 				query：URL 查询参数对象，如 { page: "1" }；
 				meta：元信息对象，如 { auth: true }
-	beforeEach(to, from, next) 注册一个全局前置守卫，它在导航被触发后调用，我们可以通过跳转或取消的方式守卫导航
+	beforeEach(to, from, next) 注册一个全局前置守卫，它在导航被触发后调用，我们可以通过跳转或取消的方式守卫导航.
+	
+	afterEach 注册全局后置钩子，它在导航被确认后调用，因此它不接受 next 函数也不会改变导航本身。
+	
+	如果当前路由含有默认子路由，则不需要为当前路由指定 name，要导航到当前路由，可以使用默认子路由的 name，如 router.push({ name: 'EditProfile' })
+	
+	路由路径path中 :xxxx 以冒号开头，代表的是该项参数是动态的，它能匹配任何值
+	
+	过滤器（filter）常用于格式化文本，以管道符号（ | ）表示。过滤器可以在双括号差值和 v-bind 表达式中使用，比如：
+	<abbr :date="date | filterA | moment">{{ date | moment('from', { startOf: 'minute' }) }}</abbr>
+	过滤器函数总接收表达式的值 (之前的操作链的结果，如上面 date | filterA 的结果) 作为第一个参数。
+	
+	参数 ...rest 使用了剩余语法，我们使用它将一个不定数量的参数表示为一个数组。
 	
 js
 	typeof:运算符把类型信息当作字符串返回.
 	Object.entries 返回给定对象的键值对数组。
+	定義全局變量window.xxx
+	shift() 方法用于把数组的第一个元素从其中删除，并返回移除后的第一个元素的值。
 	
 jq
 	contains()方法检测一个元素包含在另一个元素之内：
