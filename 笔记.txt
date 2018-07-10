@@ -1,0 +1,146 @@
+php.ini中开启注释openssl.dll和php_fileinfo
+然后继续单击License  server  输入：http://www.0-php.com:1017或者http://180.76.140.202:9123   PHPstorm运行
+或者注册码：
+K71U8DBPNE-eyJsaWNlbnNlSWQiOiJLNzFVOERCUE5FIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiR08iLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJQUyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkNMIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJSU1UiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifV0sImhhc2giOiI4OTA4Mjg5LzAiLCJncmFjZVBlcmlvZERheXMiOjAsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0=-Owt3/+LdCpedvF0eQ8635yYt0+ZLtCfIHOKzSrx5hBtbKGYRPFDrdgQAK6lJjexl2emLBcUq729K1+ukY9Js0nx1NH09l9Rw4c7k9wUksLl6RWx7Hcdcma1AHolfSp79NynSMZzQQLFohNyjD+dXfXM5GYd2OTHya0zYjTNMmAJuuRsapJMP9F1z7UTpMpLMxS/JaCWdyX6qIs+funJdPF7bjzYAQBvtbz+6SANBgN36gG1B2xHhccTn6WE8vagwwSNuM70egpahcTktoHxI7uS1JGN9gKAr6nbp+8DbFz3a2wd+XoF3nSJb/d2f/6zJR8yJF8AOyb30kwg3zf5cWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==
+放到phpstorm安装目录下的lib文件夹
+
+如放到f盘
+
+F:\PhpStorm 2018.1.1\lib\JetbrainsCrack.jar
+
+2）找到phpstorm 的安装路径, 在\bin目录下有两个文件 PhpStorm.exe.vmoptions PhpStorm64.exe.vmoptions
+
+打开文件 ，最后面加入 一行-javaagent:F:\PhpStorm 2018.1.1\lib\JetbrainsCrack.jar
+
+注 ： 后面是补丁的路径,根据自己放的位置修改
+
+3）保存文件关闭并重新打开phpstorm
+
+whereRaw=多条件查询
+pluck=指定查询
+select=指定查询多个值
+avg=平均数
+sum=平均值
+find(通过主键查找)
+i调用model层方法
+protected $fillable = [允许的字段]
+protected $guarded = [不允许的字段]
+模板原样输出只需在{{}}前加个@。如@{{}}
+模板注释{{-- 内容 --}}
+引入子视图用@include('views下方的文件名.文件名')。如@include('xxx.xxx')
+
+Github上传
+git config --global user.name "Your Name"
+git config --global user.email your@example.com
+此设置是 Git 命令 push 的默认模式为 simple，当我们执行 git push 没有指定分支时，自动使用当前分支，而不是报错。
+git config --global push.default simple
+对 Git 进行初始化
+git init
+将项目所有文件纳入到 Git 中，存放在 Git 暂存区
+git add -A
+检查 Git 状态
+git status
+保留改动并提交
+git commit -m "xxxx"
+rm 文件名  //删除文件
+ll //打印文件目录列表
+将在暂存区的更改文件进行强制撤销
+git checkout -f
+正式提交
+git remote add origin git@github.com:cavalvy/hello_laravel.git
+git push -u origin master
+！！！！！！
+后面我们如果对本地代码进行了改动，只需运行这 3 条命令即可将代码推送到安全可靠的 GitHub 上
+git add -A //保存到暂存区
+git commit -m "xxxxx" //描述
+git push //将代码推送到GitHub
+////////////////////
+git checkout master转换分支
+git checkout -b static-pages创建新分支static-pages
+git merge xxx合并分支
+git branch -d xxxx删除分支
+git clone xxxxx網址.克隆項目下來
+rm xxxxx移除文件
+
+
+
+phpstorm格式化代码快捷键：Ctrl+Alt+L
+
+
+pwd查看当前路径
+
+Homestead注意项
+在Git-bash里，可以用explorer .命令打开Homestead.yaml文件所在目录。
+命令Vagrant 重新加载 Homestead.yaml 配置&&重启虚拟机使更改生效
+vagrant provision && vagrant reload
+
+
+heroku open浏览器打开部署的网址或heroku domains查看Heroku站点地址
+heroku logs输出生产环境上的日志进行排错
+heroku config查看 Heroku 的所有配置信息
+heroku run 在 Heroku 运行 Laravel 的指定命令
+本地数据库新增的内容heroku也需要迁移
+heroku run php artisan migrate
+
+
+touch xxxx能在命令目录生成xxxx名的文件
+r
+watch-poll 会在你的终端里持续运行，监控 resources 文件夹下的资源文件是否有发生改变。在 watch-poll 命令运行的情况下，一旦资源文件发生变化，Webpack 会自动重新编译
+保证 npm run watch-poll 一直处在执行状态中,或者npm run dev运行一次
+
+mysql重设用户名密码 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密码';
+
+
+mkdir xx/xxx在项目下新建文件夹
+mv xx/xx.php xx/xx/xx.php 移动文件
+
+php artisan tinker进入Tinker环境
+记住>>> 代表着 artisan tinker 命令行环境。
+>>> App\Models\User::create(['name'=> 'Aufree', 'email'=>'aufree@yousails.com','password'=>bcrypt('password')])创建一个用户对象
+use App\Models\User这样后面的操作中直接调用 User 而不是完整的类名
+>>> User::find(1)以id查找数据
+User::findOrFail(5)
+User::first()
+User::all()
+$user->update(['name'=>'Aufree'])
+
+php artisan migrate:refresh数据库重置
+php artisan db:seed生成假数据
+合并为php artisan migrate:refresh --seed
+
+
+
+Route::resource('users', 'UsersController');
+上面代码将等同于：
+Route::get('/users', 'UsersController@index')->name('users.index');//显示所有用户列表的页面
+Route::get('/users/{user}', 'UsersController@show')->name('users.show');//显示用户个人信息的页面
+Route::get('/users/create', 'UsersController@create')->name('users.create');//创建用户的页面
+Route::post('/users', 'UsersController@store')->name('users.store');//创建用户
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');//编辑用户个人资料的页面
+Route::patch('/users/{user}', 'UsersController@update')->name('users.update');//更新用户
+Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');//删除用户
+
+我的线上网站https://secure-shore-13994.herokuapp.com/
+
+
+qq邮箱的POP3/SMTP授权码
+kgijgydwdamvbcia
+
+对heroku邮件配置
+$ heroku config:set MAIL_DRIVER=smtp使用支持 ESMTP 的 SMTP 服务器发送邮件；
+$ heroku config:set MAIL_HOST=smtp.qq.comQQ 邮箱的 SMTP 服务器地址，必须为此值；
+$ heroku config:set MAIL_PORT=25//QQ 邮箱的 SMTP 服务器端口，必须为此值25；
+$ heroku config:set MAIL_USERNAME=xxxxxxxxxxxxxx@qq.com//请将此值换为你的 QQ + @qq.com；
+$ heroku config:set MAIL_PASSWORD=xxxxxxxxx//密码是我们第一步拿到的授权码；
+$ heroku config:set MAIL_ENCRYPTION=tls//加密类型，选项 null 表示不使用任何加密，其他选项还有 ssl，这里我们使用 tls 即可。
+$ heroku config:set MAIL_FROM_ADDRESS=xxxxxxxxxxxxxx@qq.com// 此值必须同 MAIL_USERNAME 一致；
+$ heroku config:set MAIL_FROM_NAME=SampleApp   //用来作为邮件的发送者名称。
+
+由 render 方法生成的 HTML 代码默认会使用 Bootstrap 框架的样式，渲染出来的视图链接也都统一会带上 ?page 参数来设置指定页数的链接。渲染分页视图的代码必须使用 {!! !!} 语法，而不是 {{　}}，这样生成 HTML 链接才不会被转义。
+
+在 Node.js 中require 关键词是对模块进行引用.
+安装Composer 加速
+$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+subl .   //即可在 SublimeText 中打开当前目录
