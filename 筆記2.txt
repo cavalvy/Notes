@@ -5,6 +5,10 @@ devDependencies是开发时的依赖，dependencies是发布后还需要依赖�
 
 
 vue：
+
+	axios用來獲取json數據的包,是一个基于 Promise 的 HTTP 库，可以在浏览器和 node.js 中使用；
+	
+	
 	要在一个页面中使用另外的指令（非全局注册的指令，我们稍后介绍注册全局指令），我们需要先引入它。引入指令后，我们还需在 directives 中进行局部注册。
 
 	"~bootstrap-sass/assets/fonts/bootstrap/" 中的波浪号（~）会将后面的内容当模块路径对待，默认指向 node_modules 目录。
@@ -27,7 +31,7 @@ vue：
 	
 	
 	ES6 
-		允许我们使用箭头（=>）函数，因此下面两种写法是等价的：
+		允许我们使用箭头函数（=>），因此下面写法是等价的：
 			events.forEach((event) => {
 				el.addEventListener(event, handler, false)
 			})
@@ -35,6 +39,17 @@ vue：
 			events.forEach(function (event) {
 				el.addEventListener(event, handler, false)
 			})
+			var f = a = > a
+
+			//等同于
+			var f = function(a){
+				return a;  
+			}
+			//无形参
+			var f = () => 5;
+			// 等同于
+			var f = function () { return 5 };
+			
 		[...Array(num)] 中的 ... 是扩展运算符\对象展开运算符，我们可以用它展开一个数组或对象。将此对象混入到外部对象屬性中
 		Object.assign是ES6新添加的接口,可以接收多个参数，第一个参数是目标对象，后面的都是源对象，assign方法将多个原对象的属性和方法都合并到了目标对象上面，如果在这个过程中出现同名的属性（方法），后合并的属性（方法）会覆盖之前的同名属性（方法）。如下：
 		// 合并新旧个人信息，等价于 user = Object.assign({}, stateUser, user)
@@ -58,17 +73,23 @@ vue：
 	Vuex.Store
 		state：共享的状态，我们不能直接更改状态，但是可以像 store.state.user 这样访问一个状态；
 		mutations：更改状态的方法，我们可以在这里更改状态，调用方法是像 store.commit('UPDATE_USER', user) 这样提交一个事件类型，这里不能包含异步操作；
-		actions：类似于 mutations，但我们不在这里直接更改状态，而是提交前面的 mutation，调用方法是像 store.dispatch('login') 这样分发一个事件，这里可以包含异步操作；
+		actions：类似于 mutations，但我们不在这里直接更改状态，而是提交前面的 mutation，调用方法是 store.dispatch('xxx') 这样分发一个事件，这里可以包含异步操作；
+		Getters：当需要从仓库的 state 中派生出一些状态的时候，我们就可以定义 Getter，你可以认为它是仓库的计算属性。Getter 的第一个参数是 state，通过它可以访问仓库的状态，它的第二个参数是 getters，通过它可以访问仓库的派生状态.
+			mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性
+		Module:Vuex 允许我们将 store 分割成模块
 		
 	Vue.extend 用来创建一个新『子类』，其参数是一个包含组件选项的对象。
 	使用 new 关键字可以创建一个新的 Message 实例，因为没有指定 el 挂载目标，当前实例处于『未挂载』状态。如：const vm = new Message()
 	使用 vm.$mount() 手动地挂载一个未挂载的实例，并返回当前实例，此时我们能从实例获取 $el。如：vm.$mount().$el
+		$el和$mout两者在使用效果上没有任何区别，都是为了将实例化后的vue挂载到指定的dom元素中。
+		如果在实例化vue的时候指定el，则该vue将会渲染在此el对应的dom中，反之，若没有指定el，则vue实例会处于一种“未挂载”的状态，此时可以通过$mount来手动执行挂载。
 	vm.$on 用来监听当前实例上的自定义事件，其第一个参数是事件名称或包含事件名称的数组，其第二个参数是回调函数，该函数会接收触发函数的所有参数。
 	
 	
 	选项 / 数据
 		props 是用来传递数据的.數據類型：String，Number，Boolean，Function，Object，Array，Symbol。props 的绑定默认是单向的，需要在父组件上添加 .sync 修饰符，以创建『双向绑定』
 		watch 选项提供了一个方法来响应\監聽数据的变化
+			通常会在两个路由都渲染相同的组件时监听 '$route' 来得知路由参数的变化,这是因为 Vue 会复用组件实例，以导致组件内的部分钩子不再被调用。如：我们的『编辑文章』和 『创作文章』都使用 Create.vue 组件，当我们从『编辑文章』导航到『创作文章』时（在编辑文章页面点击创作文章按钮），beforeRouteEnter 就不会被调用，所以我们需要监听 '$route'，以响应路由参数的变化。
 	
 	钩子函数：
 	bind：只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次性的初始化设置；
@@ -112,7 +133,7 @@ vue：
 	
 	$emit 用于触发当前实例上的事件，其第一个参数是事件名称，后面还可以附加若干参数。如果事件需要雙向綁定對應props事件。$emit第一個參數需要添加update:xxxx
 	
-	beforeRouteEnter(to, from, next) 是组件内的路由导航守卫，在确认渲染该组件的对应路由前调用。该守卫不能访问 this，但我们通过传一个回调给 next，就可以使用上面的 vm 来访问组件实例。路由未改变，beforeRouteEnter 不会被调用。
+	beforeRouteEnter(to, from, next) 是组件内的路由导航守卫，在确认渲染该组件的对应路由前调用。该守卫不能访问 this，但我们通过传一个回调给 next，就可以来访问组件实例。路由未改变，beforeRouteEnter 不会被调用。
 	守卫的参数说明如下：
 		to：即将要进入的目标路由；
 		from：当前导航正要离开的路由，from.name 是路由的名称，对应路由配置中的 name；
@@ -126,6 +147,8 @@ vue：
 	beforeEach(to, from, next) 注册一个全局前置守卫，它在导航被触发后调用，我们可以通过跳转或取消的方式守卫导航.
 	
 	afterEach 注册全局后置钩子，它在导航被确认后调用，因此它不接受 next 函数也不会改变导航本身。
+	
+	beforeRouteLeave 是组件内的守卫，在离开该组件的对应路由时调用，此时可以访问 this，需要使用 next() 确认导航。
 	
 	如果当前路由含有默认子路由，则不需要为当前路由指定 name，要导航到当前路由，可以使用默认子路由的 name，如 router.push({ name: 'EditProfile' })
 	
@@ -142,6 +165,12 @@ js
 	Object.entries 返回给定对象的键值对数组。
 	定義全局變量window.xxx
 	shift() 方法用于把数组的第一个元素从其中删除，并返回移除后的第一个元素的值。
+	filter也是一个常用的操作，它用于把Array的某些元素过滤掉，然后返回剩下的元素。
+	splice(index,howmany,item1,.....,itemX) 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+	Promise 对象表示一个异步操作的最终状态及其返回的值，因此我们可以在 .then 的回调函数里获取返結果
+	some方法用于检测数组中的元素是否满足指定条件.如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测
+	
+	lodash:这是一个具有一致接口、模块化、高性能等特性的 JavaScript 工具库
 	
 jq
 	contains()方法检测一个元素包含在另一个元素之内：
@@ -150,7 +179,7 @@ html dom
 	target 属性可设置或返回页面中所有链接的默认target屬性值
 	isSameNode() 检查两个节点是否是相同节点
 	
-	
+
 	
 	
 	
@@ -220,6 +249,11 @@ vue--------頁面
 vue-》laravel接口
 接口返回數據-》 
 vue -》處理頁面
+
+
+
+仿照騰訊視頻
+左邊視頻居中，右邊聊天
 
 
 

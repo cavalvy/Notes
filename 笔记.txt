@@ -29,6 +29,10 @@ protected $guarded = [不允许的字段]
 模板注释{{-- 内容 --}}
 引入子视图用@include('views下方的文件名.文件名')。如@include('xxx.xxx')
 
+Github下載
+git pull origin master
+git submodule init 用来初始化本地配置文件，而 git submodule update 则从该项目中抓取所有数据并检出父项目中列出的合适的提交。
+
 Github上传
 git config --global user.name "Your Name"
 git config --global user.email your@example.com
@@ -144,3 +148,20 @@ $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
 subl .   //即可在 SublimeText 中打开当前目录
+
+laravel第二教程
+
+5.5章
+	XSS 也称跨站脚本攻击 (Cross Site Scripting)，恶意攻击者往 Web 页面里插入恶意 JavaScript 代码，当用户浏览该页之时，嵌入其中 Web 里面的 JavaScript 代码会被执行，从而达到恶意攻击用户的目的。
+	一种比较常见的 XSS 攻击是 Cookie 窃取。我们都知道网站是通过 Cookie 来辨别用户身份的，一旦恶意攻击者能在页面中执行 JavaScript 代码，他们即可通过 JavaScript 读取并窃取你的 Cookie，拿到你的 Cookie 以后即可伪造你的身份登录网站
+5.9章
+	Horizon 为 Laravel 官方出品的 Redis 队列提供了一个可以通过代码进行配置、并且非常漂亮的仪表盘，并且能够轻松监控队列的任务吞吐量、执行时间以及任务失败情况等关键指标。
+6.2章
+	话题回复功能我们只允许登录用户使用，未登录用户不显示即可。Laravel Blade 模板提供了一个『视条件加载子模板』的语法：@includeWhen($boolean, 'view.name', ['some' => 'data'])
+	@includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
+6.3章
+	每个通知类都有个 via() 方法，它决定了通知在哪个频道上发送。
+	snake_case() 会字符串格式化为下划线命名。
+6.4章
+	Laravel 支持多种邮件驱动，包括 smtp、Mailgun、Maildrill、Amazon SES、mail 和 sendmail。Mailgun 、 Amazon SES 、Maildrill 都是第三方邮件服务。mail 驱动使用 PHP 提供的 mail 函数。sendmail 驱动通过 Sendmail/Postfix（Linux）提供的命令发送邮件邮件，smtp 驱动使用支持 ESMTP 的 SMTP 服务器发送邮件。mail 不安全，sendmail 需要安装配置 Sendmail/Postfix，并且信用不高，很容易被当成垃圾邮件，第三方服务的信用是最高的，商业软件推荐使用。
+	
