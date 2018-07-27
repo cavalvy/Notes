@@ -164,4 +164,13 @@ laravel第二教程
 	snake_case() 会字符串格式化为下划线命名。
 6.4章
 	Laravel 支持多种邮件驱动，包括 smtp、Mailgun、Maildrill、Amazon SES、mail 和 sendmail。Mailgun 、 Amazon SES 、Maildrill 都是第三方邮件服务。mail 驱动使用 PHP 提供的 mail 函数。sendmail 驱动通过 Sendmail/Postfix（Linux）提供的命令发送邮件邮件，smtp 驱动使用支持 ESMTP 的 SMTP 服务器发送邮件。mail 不安全，sendmail 需要安装配置 Sendmail/Postfix，并且信用不高，很容易被当成垃圾邮件，第三方服务的信用是最高的，商业软件推荐使用。
+7.1	
+	复杂的权限控制使用 Laravel-permission包
+7.2
+	切换多个用户来测试，频繁地退出和登录用户是一个费时的事情，使用户切换工具 sudo-su
+7.4
+	Eloquent 修改器：在 写入数据库前修改。修改器是数据持久化，访问器是临时修改。访问器的使用场景是当数据因为特殊原因存在不一致性时，可以使用访问器进行矫正处理。
+	strlen(string)判斷字符長度
+	bcrypt(string)加密字符，長度60
+	starts_with($path, 'http')判斷$path是否以http開頭
 	

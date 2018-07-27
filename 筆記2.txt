@@ -252,13 +252,32 @@ vue -》處理頁面
 
 
 
-仿照騰訊視頻
-左邊視頻居中，右邊聊天
+
+申请ID：
+dj0zaiZpPTRGbDZNMXhmWDBKSSZzPWNvbnN1bWVyc2VjcmV0Jng9OGE-
+揭秘：
+e47b6c0424e55027b198534154115508efd4a1d7
+yahoo账号
+vergil@vip.163.com
+revs.hk
+
+
+amazon
+访问密钥 ID:AKIAJBOJSD4ICKYEN2FQ
+私有访问密钥:
+LYsOccXAxvpQlOJxuaKNQx4IROC8/snlgBG43G7j
+AWS 账户 ID: 9458-9936-0945
+规范用户 ID: ff11fd11baf812d92216c0c9b7477e6d6fd9baf080fa90d381463745420d1a9d
+用户=ProductAdvertisingAPI-user
+Access_Key_ID=AKIAIQUGTZEEAAJILYGA
+私有访问密钥=RAr8eO1JnrllDL79fKiWZx2QqBHNMV/wJDQyclpF
+
+AKIAJGWXLMU5TCDTCJZA
+nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
 
 
 
-
-
+學習ES6語法
 
 
 
