@@ -1,0 +1,40 @@
+var t = e.replace(/\r\n|\r|\n|\s/g, "").match(/(?:(\{.*\})(?=;))/);
+
+return /.+seller=([^&]+).*/.test(t.prop("href")) && (r = t.prop("href").match(/.+seller=([^&]+).*/)[1], n = t.text()), {
+
+regex: {
+            isAmazon: /^http[s]?:\/\/.*amazon\.co\.jp\/.*$/,
+            isjGlobe: /^http[s]?:\/\/.*jglobe\.jp\/amazon/,
+            isjGlobeCart: /^http[s]?:\/\/.*jglobe\.jp\/checkout\/cart/
+        }
+		
+		
+https://item.mercari.com/jp/m35438106993/
+https://7-11net.omni7.jp/detail/042038
+https://www.biccamera.com/bc/item/5409503/
+http://store.world.co.jp/p/H9102/item/H91022001434303.html?shop=c12000
+https://www.crowngears.com/item/2717000484225
+https://edepart.omni7.jp/detail/00100514550019223762
+http://zozo.jp/shop/americanragcie/goods-sale/24246144/?did=44823383
+https://i.lumine.jp/item/138180006870001
+https://7net.omni7.jp/detail/1106897518
+https://www.shibuya109.jp/ap/item/i/A0EDA000E8G6
+https://www.toysrus.co.jp/s/dsg-480350700
+https://iyec.omni7.jp/detail/4562323312001
+https://akachan.omni7.jp/detail/308001400
+https://www.muji.net/store/cmdty/detail/4550002645298?searchno=1&sectionCode=S1000020
+https://shop.sanrio.co.jp/products/detail.php?code=522406
+
+
+
+难题1：商品尺码，颜色
+难题2：没有库存提示
+难题3：添加成功提示
+难题4: 判斷庫存
+
+
+.blockMain dl.clearfix
+dd li 
+dd div.cart span input//庫存
+dt//顏色
+dd li div.stock > p:nth-child(1) > font > span:nth-child(2) > font//尺碼

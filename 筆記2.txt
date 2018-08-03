@@ -160,6 +160,8 @@ vue：
 	
 	参数 ...rest 使用了剩余语法，我们使用它将一个不定数量的参数表示为一个数组。
 	
+	@click 绑定一个点击事件处理器，对应 methods 选项下的方法， @click 是 v-on:click 指令的缩写；
+	
 js
 	typeof:运算符把类型信息当作字符串返回.
 	Object.entries 返回给定对象的键值对数组。
