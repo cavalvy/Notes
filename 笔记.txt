@@ -31,8 +31,9 @@ git config --global push.default simple
 git init
 将项目所有文件纳入到 Git 中，存放在 Git 暂存区
 git add -A
-检查 Git 状态
-git status
+
+git status 检查 Git 状态
+git diff xxxx查看修改內容
 保留改动并提交
 git commit -m "xxxx"
 rm 文件名  //删除文件
@@ -53,6 +54,7 @@ git checkout -b static-pages创建新分支static-pages
 git merge xxx合并分支
 git branch -d xxxx删除分支
 git clone xxxxx網址.克隆項目下來
+
 rm xxxxx移除文件
 
 
@@ -65,7 +67,7 @@ pwd查看当前路径
 Homestead注意项
 在Git-bash里，可以用explorer .命令打开Homestead.yaml文件所在目录。
 命令Vagrant 重新加载 Homestead.yaml 配置&&重启虚拟机使更改生效
-vagrant provision && vagrant reload
+vagrant reload --provision
 
 
 heroku open浏览器打开部署的网址或heroku domains查看Heroku站点地址
@@ -101,7 +103,7 @@ php artisan migrate:refresh数据库重置
 php artisan db:seed生成假数据
 合并为php artisan migrate:refresh --seed
 
-
+npm list -g --depth 0查看自己全局安裝的包
 
 Route::resource('users', 'UsersController');
 上面代码将等同于：

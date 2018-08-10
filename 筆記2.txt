@@ -171,8 +171,8 @@ js
 	splice(index,howmany,item1,.....,itemX) 方法向/从数组中添加/删除项目，然后返回被删除的项目。
 	Promise 对象表示一个异步操作的最终状态及其返回的值，因此我们可以在 .then 的回调函数里获取返結果
 	some方法用于检测数组中的元素是否满足指定条件.如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测
-	
 	lodash:这是一个具有一致接口、模块化、高性能等特性的 JavaScript 工具库
+	FormData：利用FormData对象,我们可以通过JavaScript使用XMLHttpRequest对象一些键值对来模拟一系列表单控件
 	
 jq
 	contains()方法检测一个元素包含在另一个元素之内：
@@ -277,6 +277,10 @@ Access_Key_ID=AKIAIQUGTZEEAAJILYGA
 AKIAJGWXLMU5TCDTCJZA
 nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
 
+
+运行命令:npm install 或者 npm install –save-dev会自动将package.json中的模块安装到node-modules文件夹下。
+.eslintrc.js里的rules里添加"linebreak-style": [0 ,"error", "windows"]防止windows机下的vue文件换行符报错
+新项目时app.config.js.example复制一份去掉后缀
 
 
 學習ES6語法
