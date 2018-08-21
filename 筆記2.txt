@@ -23,6 +23,7 @@ vue：
 	当 <router-link> 被点击后，to 的值就会传到 router.push()
 	
 	在组件上使用 v-for 指令进行渲染的时候，需要添加 key。它可以方便 Vue 跟踪每个节点的身份，从而重用和重新排序现有元素。每一项的 key 应该是惟一的.
+	代码里for(const xx of xxx)
 	
 
 	Router
@@ -78,6 +79,8 @@ vue：
 			mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性
 		Module:Vuex 允许我们将 store 分割成模块
 		
+		mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用.
+		
 	Vue.extend 用来创建一个新『子类』，其参数是一个包含组件选项的对象。
 	使用 new 关键字可以创建一个新的 Message 实例，因为没有指定 el 挂载目标，当前实例处于『未挂载』状态。如：const vm = new Message()
 	使用 vm.$mount() 手动地挂载一个未挂载的实例，并返回当前实例，此时我们能从实例获取 $el。如：vm.$mount().$el
@@ -88,8 +91,15 @@ vue：
 	
 	选项 / 数据
 		props 是用来传递数据的.數據類型：String，Number，Boolean，Function，Object，Array，Symbol。props 的绑定默认是单向的，需要在父组件上添加 .sync 修饰符，以创建『双向绑定』
+		required: true，我们指定当前 prop 为必须传入的数据.
+		props 中数组和对象的默认值，应当由一个工厂函数返回
+		数组default: () => []，对象default: () => ({})
+		
 		watch 选项提供了一个方法来响应\監聽数据的变化
 			通常会在两个路由都渲染相同的组件时监听 '$route' 来得知路由参数的变化,这是因为 Vue 会复用组件实例，以导致组件内的部分钩子不再被调用。如：我们的『编辑文章』和 『创作文章』都使用 Create.vue 组件，当我们从『编辑文章』导航到『创作文章』时（在编辑文章页面点击创作文章按钮），beforeRouteEnter 就不会被调用，所以我们需要监听 '$route'，以响应路由参数的变化。
+			immediate：其值为 true，将立即以表达式 currentPage 的当前值触发回调函数;如（handler）
+			回调第一个参数是表达式当前值，可以有第二个参数，是表达式的旧值。
+			
 	
 	钩子函数：
 	bind：只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次性的初始化设置；
@@ -111,6 +121,13 @@ vue：
 	created 在实例创建完成后被立即调用，此时我们已经能访问实例的数据对象和方法了
 	mounted 钩子在元素挂载到实例之后调用.(元素指頁面標簽).
 	
+	事件修饰符，常用的事件修饰符有：
+		.self：当 event.target 是当前元素自身时触发处理函数；
+		.stop：阻止事件继续传播；
+		.prevent：阻止事件默认行为；
+		.capture：使用事件捕获模式；
+		.once：事件只会触发一次；
+	
 	
 	v-model 指令可以在表单 <input> 及 <textarea> 元素上创建双向数据绑定，v-model会忽略所有表单元素的 value、checked 和 selected 的初始值，而使用 Vue 实例的数据，所以我们需要在 data 里声明对应的初始值.
 	使用 .lazy 修饰符，可以使其值在 change 事件后才同步
@@ -129,7 +146,7 @@ vue：
 			</label>
 
 	v-show 是一个条件渲染指令，它只切换元素 CSS 属性的 display
-
+	v-text 更新元素的 textContent.<span v-text="msg"></span>和<span>{{msg}}</span>一樣
 	
 	$emit 用于触发当前实例上的事件，其第一个参数是事件名称，后面还可以附加若干参数。如果事件需要雙向綁定對應props事件。$emit第一個參數需要添加update:xxxx
 	
@@ -141,14 +158,19 @@ vue：
 			参数 to 和 from 都是 路由对象 （route object），表示当前激活的路由的状态信息，其常用的属性有
 				name：路由的名称，如 'Register'；
 				path：路由的路径，如 '/auth/register'；
-				params：路由参数对象，如 { id: "1" }；
+				params：路由参数对象，如 { id: "1" };//to.params.id
 				query：URL 查询参数对象，如 { page: "1" }；
 				meta：元信息对象，如 { auth: true }
+				
+	vue文件被复用后beforeRouteEnter不会被再次调用，此时，我们需要监听 '$route' 以根据路由参数的变化，重新获取对应数据。watch: { '$route'(to){} }
+	
 	beforeEach(to, from, next) 注册一个全局前置守卫，它在导航被触发后调用，我们可以通过跳转或取消的方式守卫导航.
 	
 	afterEach 注册全局后置钩子，它在导航被确认后调用，因此它不接受 next 函数也不会改变导航本身。
 	
 	beforeRouteLeave 是组件内的守卫，在离开该组件的对应路由时调用，此时可以访问 this，需要使用 next() 确认导航。
+	
+	beforeRouteUpdate 当前路由改变，该组件被复用时调用。需要使用 next() 确认导航。也可以通过监听 '$route' 来代替 beforeRouteUpdate。
 	
 	如果当前路由含有默认子路由，则不需要为当前路由指定 name，要导航到当前路由，可以使用默认子路由的 name，如 router.push({ name: 'EditProfile' })
 	
@@ -162,6 +184,38 @@ vue：
 	
 	@click 绑定一个点击事件处理器，对应 methods 选项下的方法， @click 是 v-on:click 指令的缩写；
 	
+	//插槽slot
+	<span slot='label'>在span中插入label标签
+	作用域插槽:slot-scope. 在父组件中， 使用具有 slot-scope 的 <template> 元素，来接收从子组件传递过来的 props.
+	
+	标签中的tag 属性让它生成 <div> 标签
+	
+	路由中的alias 选项用来指定别名，它可以是一个字符串或者数组。我们指定别名为 '/xxx' 后，那么来自该路径的访问实际上就是对path的访问。
+	
+	Getter 的第一个参数是 state，通过它可以访问仓库的状态，它的第二个参数是 getters，通过它可以访问仓库的派生状态。
+	
+	//切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置使用：滚动行为
+	scrollBehavior 只在支持 history.pushState 的浏览器中可用，history.pushState 用来在浏览历史中添加一条新的记录。
+	
+	在监听键盘事件时，我们经常需要检查常见的键值。Vue 允许为 v-on 在监听键盘事件时添加按键修饰符。
+	常用按键修饰符：
+		.enter：回车键；
+		.tab：制表键；
+		.delete：删除和退格键；
+		.esc：中止键；
+		.space：空格键；
+		.up：向上方向键；
+		.down：向下方向键；
+		.left：向左方向键；
+		.right：向右方向键；
+	
+	 
+	需要将 path: '/search' 这类路由配置放到 /:user 的前面，以使其具有更高的优先级，因为 /:user 是动态的，它能够匹配到 /search 从而忽略其后面的配置
+	引入xxx配置
+	new Vue({
+		xxx
+	})
+	
 js
 	typeof:运算符把类型信息当作字符串返回.
 	Object.entries 返回给定对象的键值对数组。
@@ -171,8 +225,10 @@ js
 	splice(index,howmany,item1,.....,itemX) 方法向/从数组中添加/删除项目，然后返回被删除的项目。
 	Promise 对象表示一个异步操作的最终状态及其返回的值，因此我们可以在 .then 的回调函数里获取返結果
 	some方法用于检测数组中的元素是否满足指定条件.如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测
-	lodash:这是一个具有一致接口、模块化、高性能等特性的 JavaScript 工具库
 	FormData：利用FormData对象,我们可以通过JavaScript使用XMLHttpRequest对象一些键值对来模拟一系列表单控件
+	xx.toLowerCase()转小写
+	ES6为Array增加了from函数用来将其他对象转换成数组。
+	slice() 方法可从已有的数组中返回选定的元素。（start,end不包括该元素）该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。
 	
 jq
 	contains()方法检测一个元素包含在另一个元素之内：
@@ -182,7 +238,18 @@ html dom
 	isSameNode() 检查两个节点是否是相同节点
 	
 
+Mock.js： 一个用于生成随机数据和拦截 Ajax 请求的工具。
+axios 是一个基于 Promise 的 HTTP 库，我们可以用它在浏览器中发起 Ajax 请求。
+lodash:这是一个具有一致接口、模块化、高性能等特性的 JavaScript 工具库
+vue-loader 是一个 webpack 的 loader. 特性：
+	默认支持 ES2015；
+	允许对 Vue 组件的组成部分使用其它 webpack loader，比如对 <style> 使用 Sass 和对 <template> 使用 Jade；
+	.vue 文件中允许自定义节点，然后使用自定义的 loader 进行处理；
+	把 <style> 和 <template> 中的静态资源当作模块来对待，并使用 webpack loader 进行处理；
+	对每个组件模拟出 CSS 作用域；
+	支持开发期组件的热重载。
 	
+webpack 是一个模块打包工具。它将一堆文件中的每个文件都作为一个模块，找出它们的依赖关系，将它们打包为可部署的静态资源。
 	
 	
 
@@ -279,8 +346,13 @@ nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
 
 
 运行命令:npm install 或者 npm install –save-dev会自动将package.json中的模块安装到node-modules文件夹下。
-.eslintrc.js里的rules里添加"linebreak-style": [0 ,"error", "windows"]防止windows机下的vue文件换行符报错
-新项目时app.config.js.example复制一份去掉后缀
+.eslintrc.js里的rules里添加"linebreak-style": [0 ,"error", "windows"]防止windows机下的vue文件换行符报错。
+
+前台新项目时app.config.js.example复制一份去掉后缀
+API新项目时.env.example复制一份去掉后缀
+
+git submodule init
+git submodule update用来跟新子模块（即models文件夹）
 
 
 學習ES6語法

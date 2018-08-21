@@ -1,7 +1,7 @@
 php.ini中开启注释openssl.dll和php_fileinfo
 phpstorm破解：1在hosts 中最后一行添加0.0.0.0 account.jetbrains.com
 2在打开的 License Activation 窗口中选择 License server。輸入http://active.chinapyg.com/点击 Activate。
-
+或者獲取激活碼http://idea.lanyus.com/網站
 
 
 
