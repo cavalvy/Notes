@@ -1,4 +1,15 @@
-﻿vagrant reload --provision 
+﻿功能性的以worldhub為準，外觀性的以新模板為準，優先使用餓了麼ui!!!
+
+
+
+mateInfo能无害修改body属性
+
+所有表单提交要加全局锁，案例在登录页面
+proxy-request代购页
+
+-------------
+
+vagrant reload --provision 
 
 --save 会把依赖包名称添加到 package.json 文件 dependencies 键下。--save-dev 则添加到 package.json 文件 devDependencies 键下。
 devDependencies是开发时的依赖，dependencies是发布后还需要依赖的模块（用--save）
@@ -81,6 +92,9 @@ vue：
 		
 		mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用.
 		
+		
+		Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters
+		
 	Vue.extend 用来创建一个新『子类』，其参数是一个包含组件选项的对象。
 	使用 new 关键字可以创建一个新的 Message 实例，因为没有指定 el 挂载目标，当前实例处于『未挂载』状态。如：const vm = new Message()
 	使用 vm.$mount() 手动地挂载一个未挂载的实例，并返回当前实例，此时我们能从实例获取 $el。如：vm.$mount().$el
@@ -129,6 +143,8 @@ vue：
 		.prevent：阻止事件默认行为；
 		.capture：使用事件捕获模式；
 		.once：事件只会触发一次；
+		不常用：
+		.native：在一个组件的根元素上直接监听一个原生事件
 	
 	
 	v-model 指令可以在表单 <input> 及 <textarea> 元素上创建双向数据绑定，v-model会忽略所有表单元素的 value、checked 和 selected 的初始值，而使用 Vue 实例的数据，所以我们需要在 data 里声明对应的初始值.
@@ -218,7 +234,21 @@ vue：
 		xxx
 	})
 	
+	$event 在内联语句处理器中访问原始的 DOM 事件.
+	
 js
+	六种主要类型（语言类型）：注意是小写，开头大写就是内置对象。
+	• string
+	• number
+	• boolean
+	• null
+	• undefined
+	• object
+	简单基本类型（string、boolean、number、null 和 undefined）本身并不是对象。null 有时会被当作一种对象类型，
+	但是这其实只是语言本身的一个 bug，即对 null 执行typeof null 时会返回字符串 "object"。1 实际上，null 本身是基本类型。
+	原理是这样的，不同的对象在底层都表示为二进制，在 JavaScript 中二进制前三位都为 0 的话会被判
+	断为 object 类型，null 的二进制表示是全 0，自然前三位也是 0，所以执行 typeof 时会返回“object”。
+	
 	typeof:运算符把类型信息当作字符串返回.
 	Object.entries 返回给定对象的键值对数组。
 	定義全局變量window.xxx
@@ -231,6 +261,7 @@ js
 	xx.toLowerCase()转小写
 	ES6为Array增加了from函数用来将其他对象转换成数组。
 	slice() 方法可从已有的数组中返回选定的元素。（start,end不包括该元素）该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。
+	Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。
 	
 jq
 	contains()方法检测一个元素包含在另一个元素之内：
@@ -238,6 +269,9 @@ jq
 html dom
 	target 属性可设置或返回页面中所有链接的默认target屬性值
 	isSameNode() 检查两个节点是否是相同节点
+	
+css
+	媒体查询@media适用于
 	
 
 Mock.js： 一个用于生成随机数据和拦截 Ajax 请求的工具。
@@ -251,7 +285,27 @@ vue-loader 是一个 webpack 的 loader. 特性：
 	对每个组件模拟出 CSS 作用域；
 	支持开发期组件的热重载。
 	
+vuex-loading 有助于你管理应用中的多个加载状态。这个插件适用于状态变化频繁且复杂的实时应用程序。
+	
 webpack 是一个模块打包工具。它将一堆文件中的每个文件都作为一个模块，找出它们的依赖关系，将它们打包为可部署的静态资源。
+
+jQuery Zoom圖片變焦包。即鼠標已過去會變大圖像。
+	treeview
+
+xxtea.js是node.js的加密算法庫。
+
+epic-spinners动图仅CSS。使用方便。VUEJS集成。
+
+對比工具:beyo
+
+Velocity 是一个简单易用、高性能、功能丰富的轻量级JS动画库。
+
+typeahead.js輸入框自动提示补全提示
+
+Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。
+Vue-Awesome-Swiper基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用。
+
+vue-highlight-text:如搜索关键字结果的商品名称关键字高亮。
 
 process 对象是一个 global （全局变量），提供有关信息，控制当前 Node.js 进程。作为一个对象，它对于 Node.js 应用程序始终是可用的，故无需使用 require()。
 process（进程）其实就是存在nodejs中的一个全局变量。然后呢，咱们可以通过这个所谓的进程能拿到一些有意思的东西。
@@ -262,9 +316,41 @@ metaInfo：
 	
 text-decoration:none;去除a標籤默認樣式
 
+柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。
+
+~ 是按位取反运算符,把每个二进制位取反，0 变 1， 1 变 0。
+~~能类型转换,转换成数字类型:
+	~~true == 1
+	~~false == 0
+	~~[] == 0
+	~~undefined ==0
+	~~!undefined == 1
+	~~null == 0
+	~~!null == 1
+
 unlink()删除某文件
 在unlink()函数前加上@是用来抑制错误信息输出的。
 
+
+箭头函数不使用 this 的四种标准规则，而是根据外层（函数或者全局）作用域来决定 this。箭头函数的绑定无法被修改。（new 也不行！）它用更常见的词法作用域取代了传统的 this 机制。
+
+
+
+
+
+
+
+
+paypal:
+买家：vergil@worldhub.market 密码：worldhub
+买家：buyer-paypal@worldhub.market 密码：worldhub
+商家：paypal-facilitator@worldhub.market 密码：worldhub
+
+
+
+
+
+worldhub数据库
 ad_positions: 廣告位置
 ads：圖片
 mails：發送郵件
@@ -354,20 +440,27 @@ AKIAJGWXLMU5TCDTCJZA
 nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
 
 
-运行命令:npm install 或者 npm install –save-dev会自动将package.json中的模块安装到node-modules文件夹下。
+运行命令:npm install 或者 npm install –S会自动将package.json中的模块安装到node-modules文件夹下。
+npm uninstall xxx 删除xxx模块；
 .eslintrc.js里的rules里添加"linebreak-style": [0 ,"error", "windows"]防止windows机下的vue文件换行符报错。
 
 前台新项目时app.config.js.example复制一份去掉后缀
-API新项目时.env.example复制一份去掉后缀
-
+API/laravel新项目时.env.example复制一份去掉后缀
+laravel新项目沒有vendor文件需要composer install，並且執行下面
 git submodule init
 git submodule update用来跟新子模块（即models文件夹）
 
+composer dumpautoload  自动加载命令执行成功
+
+php -r ""运行php命令
 
 學習ES6語法
+前台樣式在variables.scss
 
-
-
+存在問題未解決！！！！
+1.會員中心-我的收藏：商品庫存顯示功能未做。
+3.請求代購的自取id輸不進數據庫
+4.請求代購的價錢api沒有返回
 
 
 

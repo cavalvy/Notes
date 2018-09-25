@@ -55,8 +55,27 @@ git merge xxx合并分支
 git branch -d xxxx删除分支
 git clone xxxxx網址.克隆項目下來
 
+git pull 前先 git stash将本地更改的代码存放git栈中，再pull，后git stash pop在栈中的代码合并到本地再解决冲突。
+
+
+如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
+git stash
+git pull origin master
+git stash pop
+
+
+2)修改git本地账户(windows)
+(1)去到windows的 控制面板，搜索凭据管理器，进入此功能
+(2)点到windows凭据，删除相关的git账户或修改即可
+(3)重新从远程服务器下载项目重新输入即可
+
 rm xxxxx移除文件
 
+linux:
+1.按键盘字母 i 进入insert模式
+2.修改最上面那行黄色合并信息,可以不修改
+3.按键盘左上角"Esc"
+4.输入":wq",注意是冒号+wq,按回车键即可
 
 
 phpstorm格式化代码快捷键：Ctrl+Alt+L
@@ -121,6 +140,8 @@ Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy')
 qq邮箱的POP3/SMTP授权码
 kgijgydwdamvbcia
 
+admin@worldhub.market
+
 对heroku邮件配置
 $ heroku config:set MAIL_DRIVER=smtp使用支持 ESMTP 的 SMTP 服务器发送邮件；
 $ heroku config:set MAIL_HOST=smtp.qq.comQQ 邮箱的 SMTP 服务器地址，必须为此值；
@@ -165,3 +186,4 @@ laravel第二教程
 	bcrypt(string)加密字符，長度60
 	starts_with($path, 'http')判斷$path是否以http開頭
 	
+php的&符号：$a = '66'; $b = &$a; echo $b; 结果$b = 66.  修改$b = '77'; echo $a;结果$a = 77 

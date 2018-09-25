@@ -1,0 +1,17 @@
+Object
+	_.has(object, path)检查 path 是否是object对象的直接属性。
+	_.get(object, path, [defaultValue])根据 object对象的path路径获取值。 如果解析 value 是 undefined 会以 defaultValue 取代。
+
+Collection
+	_.find(collection, [predicate=_.identity], [fromIndex=0])遍历 collection（集合）元素，返回 predicate（断言函数）第一个返回真值的第一个元素。predicate（断言函数）调用3个参数： (value, index|key, collection)。
+	_.reduce(collection, [iteratee=_.identity], [accumulator])压缩 collection（集合）为一个值，通过 iteratee（迭代函数）遍历 collection（集合）中的每个元素，每次返回的值会作为下一次迭代使用.
+	_.reject(collection, [predicate=_.identity])是_.filter的反向方法;此方法 返回 predicate（断言函数） 不 返回 truthy（真值）的collection（集合）元素（愚人码头注释：非真）。
+	_.filter與_.reject相反。
+	_.map(collection, [iteratee=_.identity])创建一个数组， value（值） 是 iteratee（迭代函数）遍历 collection（集合）中的每个元素后返回的结果。 iteratee（迭代函数）调用3个参数： (value, index|key, collection). 
+	
+Util
+	_.identity(value)这个方法返回首个提供的参数。
+	
+Array
+	_.findIndex(array, [predicate=_.identity], [fromIndex=0])该方法类似_.find，区别是该方法返回第一个通过 predicate 判断为真值的元素的索引值（index），而不是元素本身。
+	_.uniqBy(array, [iteratee=_.identity]) 排除指定值相同的數組	
