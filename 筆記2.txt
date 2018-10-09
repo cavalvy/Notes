@@ -290,7 +290,21 @@ vuex-loading 有助于你管理应用中的多个加载状态。这个插件适�
 webpack 是一个模块打包工具。它将一堆文件中的每个文件都作为一个模块，找出它们的依赖关系，将它们打包为可部署的静态资源。
 
 jQuery Zoom圖片變焦包。即鼠標已過去會變大圖像。
-	treeview
+	treeview樹形插件
+	attr() 方法设置或返回被选元素的属性值。
+	val() 方法返回或设置被选元素的值。
+	is()判断
+	:checked 选择器选取所有选中的复选框或单选按钮。
+	trigger() 方法触发被选元素的指定事件类型。
+	:eq() 选择器选取带有指定 index 值的元素。
+	css() 方法设置或返回被选元素的一个或多个样式属性
+	each(集合, function(index,element){})foreach方法
+	extend() 函数用于将一个或多个对象的内容合并到目标对象。
+	modal()弹出层插件。
+	preventDefault() 方法阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）。
+	
+bootstrap:
+	swal()是sweetalert彈出框
 
 xxtea.js是node.js的加密算法庫。
 

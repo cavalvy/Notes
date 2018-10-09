@@ -57,6 +57,7 @@ git clone xxxxx網址.克隆項目下來
 
 git pull 前先 git stash将本地更改的代码存放git栈中，再pull，后git stash pop在栈中的代码合并到本地再解决冲突。
 
+git log -p fileName查看更新版本改動
 
 如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
 git stash
@@ -157,7 +158,8 @@ $ heroku config:set MAIL_FROM_NAME=SampleApp   //用来作为邮件的发送者名称。
 在 Node.js 中require 关键词是对模块进行引用.
 安装Composer 加速
 $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
-
+composer require xxxx安裝指定擴展
+composer remove xxx刪除擴展
 
 subl .   //即可在 SublimeText 中打开当前目录
 

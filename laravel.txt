@@ -1,0 +1,215 @@
+英文boot计算机里称为引导
+Laravel 遵从 RESTful 架构的设计原则，将数据看做一个资源，由 URI 来指定资源。对资源进行的获取、创建、修改和删除操作，分别对应 HTTP 协议提供的 GET、POST、PATCH 和 DELETE 方法
+RESTful 架构中，我们使用 PATCH 动作来更新资源，但由于浏览器不支持发送 PATCH 动作，因此我们需要在表单中添加一个隐藏域来伪造 PATCH 请求。{{ method_field('PATCH') }},{{ method_field('DELETE') }}同理.写在表单里
+
+php artisan help migrate		查看各个 Artisan 命令的帮助界面
+php artisan key:generate		生成 App Key
+php artisan make:controller		生成控制器（複數）
+php artisan make:model			生成模型（單數）、（結尾加-m能生成迁移文件）
+php artisan make:policy			生成授权策略
+php artisan make:seeder			生成 Seeder 文件
+php artisan migrate				执行迁移
+php artisan migrate:rollback	回滚迁移
+php artisan migrate:refresh		重置数据库并重新运行所有迁移（结尾加--seed同时完成数据库的重置和填充操作）
+php artisan db:seed				填充数据库（结尾加--class=UsersTableSeeder单独指定执行 UserTableSeeder 数据库填充文件）
+php artisan tinker				进入 tinker 环境(Tinker 是一个 REPL (read-eval-print-loop)，REPL 指的是一个简单的、可交互式的编程环境，通过执行用户输入的命令，并将执行结果直接打印到命令行界面上来完成整个操作)
+php artisan route:list			查看路由列表
+php artisan make:migration add_is_admin_to_users_table --table=users为指定表生成增加字段的迁移文件。
+php artisan make:notification ResetPassword 生成 app/Notifications/ResetPassword.php 文件。
+php artisan cache:clear			清缓存
+php artisan event:generate      生成註冊器里的事件和监听事件
+
+@section 传递了第二个参数时，便不需要再通过 @stop 标识来告诉 Laravel 填充区块会在具体哪个位置结束。
+
+在unlink()函数前加上@是用来抑制错误信息输出的。
+
+.scss 是 Sass（一种 CSS 开发工具）专属的文件格式
+
+使用以下命令来将 .scss 文件编译为 .css 才能正常使用，编译命令如下：
+$ npm run dev
+也可以通过下面的命令，在每次检测到 .scss 文件发生更改时，自动将其编译为 .css 文件：
+$ npm run watch-poll
+
+在 Sass 嵌套中使用 & 对父选择器进行引用.
+
+{{　}} 是在 HTML 中内嵌 PHP 的 Blade 语法标识符，表示包含在该区块内的代码都将使用 PHP 来编译运行.
+
+route() 方法由 Laravel 提供，通过传递一个具体的路由名称来生成完整的 URL.
+
+Laravel 提供的 Eloquent ORM 跟数据库进行交互，实现用户数据的增删改查操作.
+
+『约定优于配置』
+模型中protected $table = 'xxx'可指定对应表，否者默认模型名复数的表。
+
+>>> 代表着 artisan tinker 命令行环境。
+Tinker环境下操作数据库>>> App\Models\User::create(['name'=> 'Aufree', 'email'=>'aufree@yousails.com','password'=>bcrypt('password')])
+使用 use 来引用 App\Models\User Eloquent 模型类在后面的操作中直接调用 User 而不是完整的类名
+>>> User::find(1)找id为1。
+查询用户不存在时触发报错的话，可使用 findOrFail(x)。
+first()首个用户.
+all()所有数据。
+更新数据：（常用第二）
+第一种是通过给用户对象属性进行赋值，赋值成功后再调用 save 方法进行保存更新；
+	>>> $user = User::first()
+	>>> $user->name = 'Summer'（赋值成功，但是 尚未 保存到数据库）
+	>>> $user->save()
+	
+第二种则是直接调用 update 方法进行更新。
+	>>> $user->update(['name'=>'Aufree'])
+	
+compact(xxx)方法转化为一个关联数组.
+
+{{ csrf_field() }}表单元素中添加
+
+@foreach($errors->all() as $error)
+	<li>{{ $error }}</li>
+@endforeach
+
+使用 Composer 来安装
+composer require "xxxx"
+
+Laravel 提供的 Auth 的 attempt 方法可以让我们很方便的完成用户的身份认证操作.(第一个参数为需要进行用户身份认证的数组，第二个参数为是否为用户开启『记住我』功能的布尔值)
+Auth::check() 方法用于判断当前用户是否已登录
+
+ Laravel 默认提供的 Auth::logout() 方法来实现用户的退出功能
+ 
+ 『隐性路由模型绑定』
+ 
+ redirect() 实例提供了一个 intended 方法，该方法可将页面重定向到上一次请求尝试访问的页面上，并接收一个默认跳转地址参数，当上一次请求记录为空时，跳转到默认地址上。
+ 
+ Auth 中间件提供的 guest让未登陆用户访问或不能访问
+ 
+ Laravel 默认为我们集成了 Faker 扩展包，使用该扩展包可以让我们很方便的生成一些假数据。
+ 
+ {!! $users->render() !!}渲染分页链接
+ 渲染分页视图的代码必须使用 {!! !!} 语法，而不是 {{　}}，这样生成 HTML 链接才不会被转义
+ 
+ 
+ pp/Providers/AuthServiceProvider.php包含了一个 policies 属性，该属性用于将各种模型对应到管理它们的授权策略上。
+ $this->authorize('update', $user);控制器中使用 authorize 方法来对指定操作进行授权验证,当无权限运行该行为时会抛出 HttpException。
+ 这里 update 是指授权类里的 update 授权方法，$user 对应传参 update 授权方法的第二个参数。正如上面定义 update 授权方法时候提起的，调用时，默认情况下，我们 不需要 传递第一个参数，也就是当前登录用户至该方法内，因为框架会自动加载当前登录用户。
+ 
+ Laravel 授权策略提供了 @can Blade 命令，允许我们在 Blade 模板中做授权判断。
+ 
+ Eloquent 模型会触发许多事件，让你在模型的生命周期的多个时间点进行监控：
+ creating 用于监听模型被创建之前的事件，created 用于监听模型被创建之后的事件。
+ 
+ 类完成初始化之后进行加载静态方法和变量。
+ 
+ worldhub-admin里blade模板里的asset方法指向public文件目录下
+ 
+ AppServiceProvider 是框架的核心，在 Laravel 启动时，会最先加载该文件。
+
+Carbon 是 PHP DateTime 的一个简单扩展，Laravel 将其默认集成到了框架中。对 Carbon 进行本地化的设置很简单，只在 AppServiceProvider 中调用 Carbon 的 setLocale 方法即可
+
+php artisan make:factory xxx生成的假数据的「模型工厂」
+
+php artisan make:seeder xxx对假数据进行批量生成
+
+$faker = app(Faker\Generator::class);通过 app() 方法来获取一个 Faker 容器 的实例
+
+database/seeds/DatabaseSeeder.php中指定调用填充文件
+
+在类文件里添加protected $fillable = ['content'];允许更新content字段
+
+allRelatedIds 是 Eloquent 关联关系提供的 API，用来获取关联模型的 ID 集合
+
+attach 方法会添加重复数据。使用 sync 方法。sync 方法会接收两个参数，第一个参数为要进行添加的 id，第二个参数则指明是否要移除其它不包含在关联的 id 数组中的 id，true 表示移除，false 表示不移除，默认值为 true
+
+使用 Laravel 提供的 查询构造器 whereIn 方法取出所有用户的微博动态并进行倒序排序；
+
+表单请求验证（FormRequest） 是 Laravel 框架提供的用户表单数据验证方案，此方案相比手工调用 validator 来说，能处理更为复杂的验证逻辑，更加适用于大型程序
+
+php artisan make:request xxx创建request
+
+在form表单中添加enctype="multipart/form-data" 声明。请记住，在图片或者文件上传时，为表单添加此句声明是必须的。
+
+使用有名的 Intervention/image 扩展包来处理图片裁切的逻辑
+
+SoftDeletes软删除的模型并不是真的从数据库里删除了。其实是，模型上设置了 deleted_at 属性并把其值写入数据库。
+
+
+ 一对一 对应关系，故我们使用 hasOne(),定义反向关联belongsTo()
+ 一对多hasMany(),反向belongsTo()
+ 多對多belongsToMany(),反向belongsToMany()
+ 
+ 多对多关联：附加 / 分离：attach/detach
+ sync 同步关联
+ 
+HTTP 异常:abort() 辅助函数从应用程序的任何地方生成这样的响应.
+
+基础功能：
+	请求：
+		获取请求方法。
+		获取输入。
+			$request:使用 input 方法可以从整个请求中获取输入数据（包括查询字符串），而 query 方法可以只从查询字符串中获取输入数据.
+			Laravel 在处理动态属性的优先级是，先在请求的数据中查找，如果没有，再到路由参数中查找。
+		Cookies。
+		文件。
+			想确定请求中是否存在值并且不为空，可以使用 filled 方法.
+			isValid 方法验证上传的文件是否有效.
+			path 方法会获取完整路径，extension 方法会根据文件内容判断文件的扩展名。该扩展名可能会和客户端提供的扩展名不同
+			UploadedFile 的 store 方法把上传文件移动到你的某个磁盘上。
+		配置可信代理。
+	相应：
+		创建响应。
+			字符串 & 数组：框架会自动将字符串转换为一个完整的 HTTP 响应，框架会自动将数组转为 JSON 响应。
+		重定向。
+		其他响应类型。
+			文件下载。
+	视图：
+		视图合成器。
+			视图合成器是在渲染视图时调用的回调或者类方法。如果你每次渲染视图时都要绑定视图的数据，视图合成器可以帮你将这些逻辑整理到特定的位置。
+	URL:
+		控制器行为的 URL.
+			action 功能可以为给定的控制器行为生成 URL.
+	session:
+		驱动程序先决条件.
+			数据库。
+			Redis。
+		使用 Session。
+		添加自定义 Session 驱动。
+	表单验证：
+		编写验证逻辑。
+			在典型的 HTTP 请求的情况下，会生成一个重定向响应，而对于 AJAX 请求则会发送 JSON 响应。
+			如果传入的请求是 AJAX 返回具有 422 状态代码和验证错误信息的 JSON 数据的 HTTP 响应。
+		显示验证错误信息。
+			未通过验证 Laravel 会自动把用户重定向到之前的位置。另外，所有的验证错误信息会被自动 闪存到 session.
+		表单验证请求。
+		授权表单请求。
+			如果 authorize 方法返回 false，则会自动返回一个包含 403 状态码的 HTTP 响应，也不会运行控制器的方法。
+		自定义错误信息。
+		可用验证规则。
+		自定义验证规则。
+	错误处理:
+		本地环境APP_DEBUG 环境变量的值设置为 true。在生产环境中，该值应始终为 false
+		HTTP 异常。
+			abort 辅助函数从应用程序的任何地方生成这样的响应。
+			
+
+
+組件：
+jQuery BooGrand是一个强大的表扩展程序。
+jQuery cxSelect 多级联动下拉菜单
+bootstrap-switch切換按鈕
+bootstrap-fileinput文件上傳
+summernote文本編輯器
+ramsey/uuid
+jQuery Bootgrid美观，时尚，直观。专为引导程序设计的网格控件。
+smalot-bootstrap-datetimepicker日期和时间表单组件。
+Guzzle是一个PHP的HTTP客户端，用来轻而易举地发送请求，并集成到我们的WEB服务上。
+arcanedev日志管理工具
+
+
+项目注意：
+worldhub/okubuy的policy的hasPermission方法参数来自PermissionSeeder.php。
+每個模型里那些備註where。。。的可以研究artisan命令的ide-helper。
+关于插件的问题，先看文档
+
+okubuy項目沒完成：
+	商品添加校驗不完整。
+	修改商品頁-》基本信息：起始/結束時間對不上數據。
+	預約直播報錯，worldhub也是，因為指定的.env文件的參數不存在
+	設置-》SEO設置報錯（暂时不理）
+	快递设置-》快递列表-》修改页面报错
+	
