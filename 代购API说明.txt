@@ -1,0 +1,26 @@
+雅虎：
+	IchibaItemSearch产品搜索API:按关键字搜索项目，并按商店/流派细化搜索。
+	Rakuten Market类型搜索API。
+	
+	
+	
+	IchibaItemSearch中输入参数
+		shopCode：商店代码
+		keyword：关键字
+		itemCode：产品代码
+		genreId：类型ID
+		
+	IchibaItemSearch中输出参数说明
+		itemName：大标题
+		catchcopy：小标题
+		itemCode：产品代码
+		itemPrice：价格
+		itemCaption：描述
+		itemUrl：商品URL
+		shopUrl：店铺URL
+		smallImageUrls[]:小图
+		mediumImageUrls[]:中图
+		shopName：店名
+		shopCode：商店代码
+		genreId：类型ID
+	

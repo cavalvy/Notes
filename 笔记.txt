@@ -20,7 +20,8 @@ protected $guarded = [不允许的字段]
 
 Github下載
 git pull origin master
-git submodule init 用来初始化本地配置文件，而 git submodule update 则从该项目中抓取所有数据并检出父项目中列出的合适的提交。
+git submodule init 新项目初始化本地配置文件，
+git submodule update 每次pull下来后都要运行来更新models
 
 Github上传
 git config --global user.name "Your Name"
@@ -160,6 +161,8 @@ $ heroku config:set MAIL_FROM_NAME=SampleApp   //用来作为邮件的发送者名称。
 $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 composer require xxxx安裝指定擴展
 composer remove xxx刪除擴展
+composer dump-autoload 重新加载文件關聯關係
+composer install --no-dev線上時不需要安裝config文件里require-dev的東西
 
 subl .   //即可在 SublimeText 中打开当前目录
 

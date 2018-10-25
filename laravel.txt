@@ -138,6 +138,9 @@ SoftDeletes软删除的模型并不是真的从数据库里删除了。其实是
  
 HTTP 异常:abort() 辅助函数从应用程序的任何地方生成这样的响应.
 
+has()方法是基于关联关系去过滤模型的查询结果，所以它的作用和where条件非常相似。如果你只使用has('post'),这表示你只想得到这个模型，这个模型的至少存在一个post的关联关系。
+whereHas()方法的原理基本和has()方法相同，但是他允许你自己添加对这个模型的过滤条件。
+
 基础功能：
 	请求：
 		获取请求方法。
@@ -202,14 +205,20 @@ arcanedev日志管理工具
 
 
 项目注意：
-worldhub/okubuy的policy的hasPermission方法参数来自PermissionSeeder.php。
-每個模型里那些備註where。。。的可以研究artisan命令的ide-helper。
-关于插件的问题，先看文档
+	worldhub/okubuy的policy的hasPermission方法参数来自PermissionSeeder.php。
+	每個模型里那些備註where。。。的可以研究artisan命令的ide-helper。
+	关于插件的问题，先看文档。
+	form表單的input便签id是给label标签的for属性用，所以他们一样。
+	API和admin项目push代码要外面和models里面各push一次，拉的时候先pull再submodule update来更新modules
 
 okubuy項目沒完成：
+後台：
 	商品添加校驗不完整。
 	修改商品頁-》基本信息：起始/結束時間對不上數據。
 	預約直播報錯，worldhub也是，因為指定的.env文件的參數不存在
 	設置-》SEO設置報錯（暂时不理）
-	快递设置-》快递列表-》修改页面报错
+	快递设置-》快递列表-》修改页面报错（curl的错）
+前台：
+	footer未做完
+	
 	

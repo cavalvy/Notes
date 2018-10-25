@@ -194,12 +194,16 @@ vue：
 	
 	路由路径path中 :xxxx 以冒号开头，代表的是该项参数是动态的，它能匹配任何值
 	
+	v-bind 指令可以用于响应式地更新 HTML 特性
+	v-bind縮寫:
+	
 	过滤器（filter）常用于格式化文本，以管道符号（ | ）表示。过滤器可以在双括号差值和 v-bind 表达式中使用，比如：
 	<abbr :date="date | filterA | moment">{{ date | moment('from', { startOf: 'minute' }) }}</abbr>
 	过滤器函数总接收表达式的值 (之前的操作链的结果，如上面 date | filterA 的结果) 作为第一个参数。
 	
 	参数 ...rest 使用了剩余语法，我们使用它将一个不定数量的参数表示为一个数组。
 	
+	v-on 指令，它用于监听 DOM 事件
 	@click 绑定一个点击事件处理器，对应 methods 选项下的方法， @click 是 v-on:click 指令的缩写；
 	
 	//插槽slot
@@ -310,6 +314,8 @@ xxtea.js是node.js的加密算法庫。
 
 epic-spinners动图仅CSS。使用方便。VUEJS集成。
 
+vue-awesome-swiper轮播组件
+
 對比工具:beyo
 
 Velocity 是一个简单易用、高性能、功能丰富的轻量级JS动画库。
@@ -332,7 +338,7 @@ text-decoration:none;去除a標籤默認樣式
 
 柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。
 
-~ 是按位取反运算符,把每个二进制位取反，0 变 1， 1 变 0。
+~0=-1，~1= -2，但~-1=0，~-2=1，通常用于判断可以减少代码，如数组判断是否包含某值，if (arr.indexOf('xx') !== -1)
 ~~能类型转换,转换成数字类型:
 	~~true == 1
 	~~false == 0
@@ -441,18 +447,17 @@ revs.hk
 
 
 amazon
-访问密钥 ID:AKIAJBOJSD4ICKYEN2FQ
-私有访问密钥:
-LYsOccXAxvpQlOJxuaKNQx4IROC8/snlgBG43G7j
 AWS 账户 ID: 9458-9936-0945
 规范用户 ID: ff11fd11baf812d92216c0c9b7477e6d6fd9baf080fa90d381463745420d1a9d
 用户=ProductAdvertisingAPI-user
-Access_Key_ID=AKIAIQUGTZEEAAJILYGA
-私有访问密钥=RAr8eO1JnrllDL79fKiWZx2QqBHNMV/wJDQyclpF
+amazon中国的
+访问密钥=AKIAJGWXLMU5TCDTCJZA
+私有访问密钥=nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
+amazon日本
+用163邮箱
+合伙人ID：okubuy0e-22
 
-AKIAJGWXLMU5TCDTCJZA
-nMovGqqIzdXfcO/fI2dUyoCJ1SEk1U2RjNMbUe6n
-
+https://www.amazon.cn/gp/site-directory/ref=nav_shopall_btn
 
 运行命令:npm install 或者 npm install –S会自动将package.json中的模块安装到node-modules文件夹下。
 npm uninstall xxx 删除xxx模块；
