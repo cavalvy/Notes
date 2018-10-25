@@ -1,0 +1,24 @@
+记住这一点“constructor 并不表示被构造”，a1.constructor是一个非常不可靠并且不安全的引用。通常来说要尽量避免使用这些引用。
+
+如果在对象上没有找到需要的属性或者方法引用，引擎就会继续在 [[Prototype]] 关联的对象上进行查找。这一系列对象的链接被称为“原型链”。
+[[Prototype]] 机制就是指对象中的一个内部链接引用另一个对象。
+
+// 让 AuthController 委托 LoginController
+var AuthController = Object.create( LoginController );
+
+class 语法糖:
+function xx() {}在ECS6中使用class xx{aa(){}}
+在 ES6 中 我 们 可 以 在 任 意 对 象 的 字 面 形 式 中 使 用 简 洁 方 法 声 明（concise method
+declaration），所以对象关联风格的对象可以这样声明（和 class 的语法糖一样）：
+var LoginController = {
+	errors: [],
+	getUser() { // 妈妈再也不用担心代码里有 function 了！
+	// ...
+	},
+}
+唯一的区别是对象的字面形式仍然需要使用“,”来分隔元素，而 class 语法不需要。
+
+
+
+
+每一章的小結最精簡。
