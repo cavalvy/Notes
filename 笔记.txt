@@ -163,6 +163,8 @@ composer require xxxx安裝指定擴展
 composer remove xxx刪除擴展
 composer dump-autoload 重新加载文件關聯關係
 composer install --no-dev線上時不需要安裝config文件里require-dev的東西
+php -r "echo ini_get('memory_limit').PHP_EOL;"輸入命令查看php運行內存大小
+php -r "ini_set('memory_limit', '1024M');"設置內存
 
 subl .   //即可在 SublimeText 中打开当前目录
 
